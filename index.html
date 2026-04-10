@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signs by Sadie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage:       #8aab85;
+      --sage-light: #c5d9be;
+      --sage-dark:  #5e8059;
+      --cream:      #f7f2ea;
+      --cream-dark: #ede6d8;
+      --white:      #faf8f5;
+      --text:       #3d3530;
+      --text-mid:   #6b6158;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      font-weight: 300;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 3rem;
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--sage-dark); }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      background: linear-gradient(160deg, var(--cream) 0%, var(--white) 55%, #e8efe6 100%);
+    }
+
+    .logo-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--sage-light);
+      box-shadow: 0 8px 40px rgba(138, 171, 133, 0.25);
+      margin-bottom: 2.2rem;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(0.78);
+      transform-origin: center;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sage-dark);
+    }
+
+    .hero p.tagline {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--text-mid);
+      letter-spacing: 0.06em;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.4rem;
+      background: var(--sage);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+    }
+
+    .btn:hover { background: var(--sage-dark); transform: translateY(-1px); }
+
+    .scroll-hint {
+      margin-top: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--sage);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .scroll-hint svg { animation: bounce 2s infinite; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(5px); }
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      max-width: 220px;
+      margin: 0 auto;
+      padding: 1rem 0;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--sage-light);
+    }
+    .divider span {
+      color: var(--sage);
+      font-size: 1.1rem;
+    }
+
+    /* ── ABOUT ───────────────────────────────────────────── */
+    section { padding: 6rem 2rem; }
+
+    .about {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.9rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    h2 em { font-style: italic; color: var(--sage-dark); }
+
+    .about p {
+      max-width: 580px;
+      margin: 0 auto 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+    }
+
+    /* ── QUOTE FORM ──────────────────────────────────────── */
+    .quote {
+      background: linear-gradient(155deg, #e8efe6 0%, var(--cream) 100%);
+      text-align: center;
+    }
+
+    .quote > .section-label,
+    .quote > h2,
+    .quote > .sub {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .quote .sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      display: block;
+    }
+
+    form {
+      max-width: 640px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 0.45rem;
+      text-align: left;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      border-radius: 3px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(138, 171, 133, 0.18);
+    }
+
+    input::placeholder, textarea::placeholder { color: #b0a89e; }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit {
+      text-align: center;
+      margin-top: 0.6rem;
+    }
+
+    .form-submit .btn {
+      padding: 1rem 3rem;
+      font-size: 0.82rem;
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-top: 0.8rem;
+      opacity: 0.8;
+    }
+
+    /* success banner (shown via JS) */
+    .success-msg {
+      display: none;
+      background: var(--sage);
+      color: var(--cream);
+      border-radius: 4px;
+      padding: 1.2rem 1.6rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: var(--cream);
+      text-align: center;
+      padding: 2.8rem 2rem;
+    }
+
+    footer .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+      color: var(--cream);
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      opacity: 0.55;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.4rem; }
+      nav ul { gap: 1.4rem; }
+      .form-row { grid-template-columns: 1fr; }
+      section { padding: 4.5rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Signs by Sadie</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#quote">Get a Quote</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="logo-circle">
+      <img src="sadielogo1.jpg" alt="Signs by Sadie logo" />
+    </div>
+    <p class="section-label">Handcrafted Wedding Signage</p>
+    <h1>Signs by <em>Sadie</em></h1>
+    <p class="tagline">Beautiful, custom-lettered signs that bring your wedding day to life — from welcome boards to seating charts and everything in between.</p>
+    <a href="#quote" class="btn">Request a Quote</a>
+    <div class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 3v10M3 9l5 5 5-5" stroke="#8aab85" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="divider"><span>✦</span></div>
+    <p class="section-label">About</p>
+    <h2>Made with care,<br><em>crafted for your day</em></h2>
+    <p>Hi, I'm Sadie — a sign maker specializing in custom wedding signage. Every piece I create is hand-lettered and thoughtfully designed to match your wedding's unique style and aesthetic.</p>
+    <p>From the moment guests arrive to the last dance, beautifully crafted signs set the tone and tell your story. I work closely with each couple to bring their vision to life.</p>
+    <div class="divider" style="margin-top:2.5rem"><span>✦</span></div>
+  </section>
+
+  <!-- QUOTE FORM -->
+  <section class="quote" id="quote">
+    <p class="section-label">Get in Touch</p>
+    <h2>Request a <em>Quote</em></h2>
+    <span class="sub">Tell me about your dream wedding signs! The more detail you share — size, wording, style, color palette — the better I can tailor a quote for you.</span>
+
+    <!-- Replace the action URL with your Formspree endpoint: https://formspree.io/f/YOUR_ID -->
+    <form id="quoteForm" action="https://formspree.io/f/xbdpnrnp" method="POST">
+      <div class="form-row">
+        <div>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+        </div>
+      </div>
+
+      <div>
+        <label for="wedding_date">Wedding Date</label>
+        <input type="date" id="wedding_date" name="wedding_date" required />
+      </div>
+
+      <div>
+        <label for="message">Describe the Sign(s) You'd Like</label>
+        <textarea id="message" name="message" placeholder="E.g. A large welcome sign on a wood board in sage green and ivory, script lettering. Also a seating chart for 120 guests, matching style. Our color palette is dusty rose, sage, and cream..." required></textarea>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn">Send My Request</button>
+        <p class="form-note">I typically respond within 1–2 business days.</p>
+      </div>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      Thank you! Your request has been sent. I'll be in touch soon. ✦
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Signs by Sadie</p>
+    <p>Handcrafted wedding signage &nbsp;·&nbsp; Made with love</p>
+  </footer>
+
+  <script>
+    // Intercept form submit for a smooth success state
+    const form = document.getElementById('quoteForm');
+    const success = document.getElementById('successMsg');
+
+    form.addEventListener('submit', async (e) => {
+      const action = form.getAttribute('action');
+
+      // If Formspree ID hasn't been set, just show success visually (dev mode)
+      if (action.includes('YOUR_FORMSPREE_ID')) return;
+
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    });
+
+    // Subtle nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow =
+        window.scrollY > 10 ? '0 2px 16px rgba(0,0,0,0.07)' : 'none';
+    });
+  </script>
+</body>
+</html>
