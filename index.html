@@ -97,7 +97,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center center;
-      transform: scale(0.78);
+      transform: scale(1.22);
       transform-origin: center;
     }
 
@@ -216,6 +216,41 @@
       font-size: 1.05rem;
       line-height: 1.85;
       color: var(--text-mid);
+    }
+
+    /* ── GALLERY ─────────────────────────────────────────── */
+    .gallery {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      max-width: 960px;
+      margin: 3rem auto 0;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 3px;
+      display: block;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.14);
+    }
+
+    @media (max-width: 700px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid img { height: 320px; }
     }
 
     /* ── QUOTE FORM ──────────────────────────────────────── */
@@ -356,7 +391,7 @@
   <nav>
     <a href="#" class="nav-logo">Signs by Sadie</a>
     <ul>
-      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#quote">Get a Quote</a></li>
     </ul>
   </nav>
@@ -368,7 +403,7 @@
     </div>
     <p class="section-label">Handcrafted Wedding Signage</p>
     <h1>Signs by <em>Sadie</em></h1>
-    <p class="tagline">Beautiful, custom-lettered signs that bring your wedding day to life — from welcome boards to seating charts and everything in between.</p>
+    <p class="tagline">Beautiful, custom-lettered signs that bring your wedding day to life</p>
     <a href="#quote" class="btn">Request a Quote</a>
     <div class="scroll-hint">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -377,14 +412,14 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="divider"><span>✦</span></div>
-    <p class="section-label">About</p>
-    <h2>Made with care,<br><em>crafted for your day</em></h2>
-    <p>Hi, I'm Sadie — a sign maker specializing in custom wedding signage. Every piece I create is hand-lettered and thoughtfully designed to match your wedding's unique style and aesthetic.</p>
-    <p>From the moment guests arrive to the last dance, beautifully crafted signs set the tone and tell your story. I work closely with each couple to bring their vision to life.</p>
-    <div class="divider" style="margin-top:2.5rem"><span>✦</span></div>
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <h2>Past <em>Work</em></h2>
+    <div class="gallery-grid">
+      <img src="IMG_9598.JPEG" alt="Acrylic welcome sign with couple portrait" />
+      <img src="IMG_9599.JPG" alt="Wood welcome sign — Abby and Beau" />
+      <img src="IMG_9601.JPG" alt="Mirror order of events sign" />
+    </div>
   </section>
 
   <!-- QUOTE FORM -->
@@ -407,11 +442,6 @@
       </div>
 
       <div>
-        <label for="wedding_date">Wedding Date</label>
-        <input type="date" id="wedding_date" name="wedding_date" required />
-      </div>
-
-      <div>
         <label for="message">Describe the Sign(s) You'd Like</label>
         <textarea id="message" name="message" placeholder="E.g. A large welcome sign on a wood board in sage green and ivory, script lettering. Also a seating chart for 120 guests, matching style. Our color palette is dusty rose, sage, and cream..." required></textarea>
       </div>
@@ -430,7 +460,7 @@
   <!-- FOOTER -->
   <footer>
     <p class="footer-logo">Signs by Sadie</p>
-    <p>Handcrafted wedding signage &nbsp;·&nbsp; Made with love</p>
+    <p>602-540-1598</p>
   </footer>
 
   <script>
